@@ -1,15 +1,19 @@
 import string
 
-real_msg = input("Input real message : ")
-shift = int(input("Input shift : "))
+def caesar_cipher_encrypt(text, shift):
+    if shift >= 26:
+        raise TypeError("Shift cannot more than 25")
 
-if shift >= 26:
-    raise TypeError("Shift cannot more than 25") 
+    alphabets = [string.ascii_lowercase, string.ascii_uppercase, string.punctuation]
 
-alphabet = string.ascii_lowercase
-shifted = alphabet[shift:] + alphabet[:shift]
-table = str.maketrans(alphabet, shifted)
+    def shift_alphabet(alphabets):
+        return alphabets[shift:] + alphabets[:shift]
 
-encrypted = real_msg.translate(table)
+    
+    shifted_alphabets = tuple(map(shift_alphabet, alphabets))
+    final_alphabet = ''.join(alphabets)
+    final_shifted_alphabet = ''.join(shifted_alphabets)
 
-print(encrypted)
+    table = str.maketrans(final_alphabet, final_shifted_alphabet)
+
+    return text.translate(table)
