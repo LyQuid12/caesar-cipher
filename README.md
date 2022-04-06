@@ -6,7 +6,7 @@ For the packages versions can be seen [here](https://github.com/EterNomm/Whiteha
 Example :
 - Encrypt
 ```py
-import encrypt
+from encrypt import *
 
 text = "LyQuid"
 encrypted = caesar_cipher_encrypt(text, 12)
@@ -17,7 +17,7 @@ print(encrypted)
 
 - Decrypt
 ```py
-import encrypt
+from decrypt import *
 
 text = "XkCgup"
 decrypted = caesar_cipher_decrypt(text, 12)
